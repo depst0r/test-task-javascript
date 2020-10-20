@@ -97,10 +97,10 @@ form.addEventListener('submit', (e) => {
         submit();
         form.reset();
     } else {
-        console.error('error')
+        console.error('error');
     }
 
-})
+});
 // end
 
 // todo start
@@ -109,56 +109,61 @@ const input = document.querySelector('.message'),
     result = document.querySelector('.todo');
 
 btn.addEventListener('click', (e) => {
-    // result.innerHTML += `<li>${input.value}</li>`
-    if (input.value === '') return
-    createDeleteElements(input.value)
-    input.value = ''
+    if (input.value === '') return;
+    createDeleteElements(input.value);
+    input.value = '';
 })
 
 
-
 function createDeleteElements(value) {
-    console.log(value)
 
-    const input = document.createElement('input')
-    const text = document.createElement('textarea')
-    const btn = document.createElement('button')
-    const delet = document.createElement('button')
-    const li = document.createElement('li')
-    const div = document.createElement('div')
+    const input = document.createElement('input');
+    const text = document.createElement('textarea');
+    const btn = document.createElement('button');
+    const delet = document.createElement('button');
+    const li = document.createElement('li');
+    const div = document.createElement('div');
+    const title = document.createElement('h1');
 
-    input.type = 'text'
-    btn.textContent = 'Добавить'
-    delet.textContent = 'Delete'
-    delet.className = delet
-    text.cols = 54
-    text.rows = 10
-
-
-    li.textContent = value
-    li.appendChild(delet)
+    input.type = 'text';
+    btn.textContent = 'Добавить';
+    delet.textContent = 'Delete';
+    delet.className = 'delet';
+    delet.type = 'button';
+    text.cols = 54;
+    text.rows = 10;
 
 
-    li.appendChild(input)
-    li.appendChild(text)
-    li.appendChild(btn)
-    li.appendChild(div)
+    title.textContent = value;
+
+
+    li.appendChild(delet);
+    li.appendChild(title);
+    li.appendChild(input);
+    li.appendChild(text);
+    li.appendChild(btn);
+    li.appendChild(div);
 
 
     btn.addEventListener('click', () => {
-        const span = document.createElement('span')
-        const p = document.createElement('p')
-        span.textContent = text.value
-        p.textContent = input.value
-        div.appendChild(p)
-        div.appendChild(span)
+        const span = document.createElement('span');
+        const p = document.createElement('p');
+
+
+        span.textContent = text.value;
+        p.textContent = input.value;
+        div.appendChild(p);
+        div.appendChild(span);
+        input.value = '';
+        text.value = '';
 
     })
 
     delet.addEventListener('click', () => {
-        console.log(li)
-        result.removeChild(li)
+        result.removeChild(li);
     })
-    result.appendChild(li)
-}
-// todo end
+
+
+    result.appendChild(li);
+};
+    // todo end

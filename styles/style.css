@@ -9,6 +9,18 @@ textarea {
     resize: none;
 }
 
+span {
+    word-break: break-word;
+    box-sizing: border-box;
+    color: khaki;
+}
+
+p {
+    text-align: center;
+    font-size: 25px;
+    border: 2px dashed deepskyblue;
+}
+
 .errors {
     height: 20px;
     color: red;
@@ -104,6 +116,7 @@ input[type=checkbox] {
     background-color: red;
     color: black;
 }
+
 
 input[type=checkbox],
 label {
