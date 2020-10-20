@@ -139,13 +139,9 @@ function createDeleteElements(value) {
     li.appendChild(delet)
 
 
-
-    result.appendChild(li)
     li.appendChild(input)
     li.appendChild(text)
     li.appendChild(btn)
-    // li.appendChild(p)
-    // li.appendChild(span)
     li.appendChild(div)
 
 
@@ -159,89 +155,10 @@ function createDeleteElements(value) {
 
     })
 
+    delet.addEventListener('click', () => {
+        console.log(li)
+        result.removeChild(li)
+    })
+    result.appendChild(li)
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // const addMessage = document.querySelector('.message'),
-    // addMessage2 = document.querySelector('.message1'),
-    // addButton = document.querySelector('.add'),
-    // todo = document.querySelector('.todo'),
-    // text = document.querySelector('.text');
-
-    // create_new_todo = wrap
-    // addmessage = id input
-    // todo = id result
-
-
-
-
-// const createElements = () => {
-//     const newElem = document.createElement('span');
-//     newElem.textContent = input.value;
-//     todo.appendChild(newElem)
-// }
-
-
-// addButton.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     if (!addMessage.value === '') {
-
-//     }
-// });
-
-// let todoList = [];
-
-// addButton.addEventListener('click', () => {
-//     let newTodo = {
-//         todo: addMessage.value,
-//         todo1: addMessage2.value,
-//         text: text.value,
-//         checked: false,
-//         important: false
-//     };
-
-//     todoList.push(newTodo);
-//     displayMessages();
-// });
-
-
-// function displayMessages() {
-//     let displayMessage = '';
-//     todoList.forEach((item, i) => {
-//         displayMessage += `
-//         <li>
-//         <label for='item_${i}'>${item.todo}</label>
-//         <br>
-//         <label for='item_${i}'>${item.todo1}</label>
-//         <br>
-//         <label for='item_${i}'>${item.text}</label>
-//         <br>
-//         <span>Блок № ${i + 1}</span>
-//         <input type="text" class="message" placeholder="заголовок поля">
-//         <textarea class="text" cols="54" rows="10" placeholder="содержание поля"></textarea>
-//         <button>click</button>
-//         </li>
-//         `;
-//         todo.innerHTML = displayMessage;
-
-//         addMessage.value = '';
-//         addMessage2.value = '';
-//         text.value = '';
-//     })
-// };
-
 // todo end
