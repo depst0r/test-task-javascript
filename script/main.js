@@ -93,7 +93,7 @@ form.addEventListener('submit', (e) => {
             }
         }
     }
-    if (isValid == true) {
+    if (isValid) {
         submit();
         form.reset();
     } else {
@@ -104,39 +104,144 @@ form.addEventListener('submit', (e) => {
 // end
 
 // todo start
-const addMessage = document.querySelector('.message'),
-    addButton = document.querySelector('.add'),
-    todo = document.querySelector('.todo');
+const input = document.querySelector('.message'),
+    btn = document.querySelector('.add'),
+    result = document.querySelector('.todo');
 
-let todoList = [];
+btn.addEventListener('click', (e) => {
+    // result.innerHTML += `<li>${input.value}</li>`
+    if (input.value === '') return
+    createDeleteElements(input.value)
+    input.value = ''
+})
 
-addButton.addEventListener('click', () => {
-    let newTodo = {
-        todo: addMessage.value,
-        checked: false,
-        important: false
-    };
 
-    todoList.push(newTodo);
-    displayMessages();
-});
 
-function test() {
+function createDeleteElements(value) {
+    console.log(value)
 
-}
+    const input = document.createElement('input')
+    const text = document.createElement('textarea')
+    const btn = document.createElement('button')
+    const delet = document.createElement('button')
+    const li = document.createElement('li')
+    const div = document.createElement('div')
 
-function displayMessages() {
-    let displayMessage = '';
-    todoList.forEach((item, i) => {
-        displayMessage += `
-        <li>
-        <input type='checkbox' id='item_${i}'>
-        <label for='item_${i}'>${item.todo}</label>
-        </li>
-        `;
-        todo.innerHTML = displayMessage;
-        addMessage.value = '';
+    input.type = 'text'
+    btn.textContent = 'Добавить'
+    delet.textContent = 'Delete'
+    delet.className = delet
+    text.cols = 54
+    text.rows = 10
+
+
+    li.textContent = value
+    li.appendChild(delet)
+
+
+
+    result.appendChild(li)
+    li.appendChild(input)
+    li.appendChild(text)
+    li.appendChild(btn)
+    // li.appendChild(p)
+    // li.appendChild(span)
+    li.appendChild(div)
+
+
+    btn.addEventListener('click', () => {
+        const span = document.createElement('span')
+        const p = document.createElement('p')
+        span.textContent = text.value
+        p.textContent = input.value
+        div.appendChild(p)
+        div.appendChild(span)
+
     })
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // const addMessage = document.querySelector('.message'),
+    // addMessage2 = document.querySelector('.message1'),
+    // addButton = document.querySelector('.add'),
+    // todo = document.querySelector('.todo'),
+    // text = document.querySelector('.text');
+
+    // create_new_todo = wrap
+    // addmessage = id input
+    // todo = id result
+
+
+
+
+// const createElements = () => {
+//     const newElem = document.createElement('span');
+//     newElem.textContent = input.value;
+//     todo.appendChild(newElem)
+// }
+
+
+// addButton.addEventListener('click', (e) => {
+//     e.preventDefault();
+//     if (!addMessage.value === '') {
+
+//     }
+// });
+
+// let todoList = [];
+
+// addButton.addEventListener('click', () => {
+//     let newTodo = {
+//         todo: addMessage.value,
+//         todo1: addMessage2.value,
+//         text: text.value,
+//         checked: false,
+//         important: false
+//     };
+
+//     todoList.push(newTodo);
+//     displayMessages();
+// });
+
+
+// function displayMessages() {
+//     let displayMessage = '';
+//     todoList.forEach((item, i) => {
+//         displayMessage += `
+//         <li>
+//         <label for='item_${i}'>${item.todo}</label>
+//         <br>
+//         <label for='item_${i}'>${item.todo1}</label>
+//         <br>
+//         <label for='item_${i}'>${item.text}</label>
+//         <br>
+//         <span>Блок № ${i + 1}</span>
+//         <input type="text" class="message" placeholder="заголовок поля">
+//         <textarea class="text" cols="54" rows="10" placeholder="содержание поля"></textarea>
+//         <button>click</button>
+//         </li>
+//         `;
+//         todo.innerHTML = displayMessage;
+
+//         addMessage.value = '';
+//         addMessage2.value = '';
+//         text.value = '';
+//     })
+// };
 
 // todo end
